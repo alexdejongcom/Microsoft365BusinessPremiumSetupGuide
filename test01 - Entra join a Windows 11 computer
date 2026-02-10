@@ -1,0 +1,63 @@
+# Lab: Join a Windows 11 Device to Microsoft Entra ID
+
+## Overview
+In this lab, you will join a Windows 11 device to **:contentReference[oaicite:0]{index=0}** (formerly Azure Active Directory).  
+This enables centralized identity, device management, and conditional access for the device.
+
+> **Scope**
+> - Azure Public cloud
+> - Windows 11 (Pro, Enterprise, or Education)
+> - Portal-first guidance  
+> - PowerShell included as an optional alternative where applicable
+
+---
+
+## Prerequisites
+
+- An active Microsoft Entra tenant
+- A user account in Microsoft Entra ID with permission to join devices
+  - Default: **All users** can join devices (up to 5)
+- Windows 11 **Pro, Enterprise, or Education**
+  - Windows 11 Home **does not support** Entra ID join
+- Internet connectivity from the Windows 11 device
+
+---
+
+## Verify Tenant Device Settings (Azure Portal)
+
+1. Sign in to the **Azure portal**:  
+   https://portal.azure.com
+2. Navigate to:  
+   **Microsoft Entra ID** → **Devices** → **Device settings**
+3. Verify the following:
+   - **Users may join devices to Azure AD**: `All` (or a specific group)
+   - **Maximum number of devices per user**: as required
+4. Select **Save** if changes were made.
+
+### Validation
+- Confirm no Conditional Access policy blocks device registration.
+
+---
+
+## Join Windows 11 to Microsoft Entra ID (Portal / UI Method)
+
+> Perform these steps **on the Windows 11 device**.
+
+1. Sign in to Windows 11 with a **local account** or existing user.
+2. Open **Settings**
+3. Navigate to:  
+   **Accounts** → **Access work or school**
+4. Select **Connect**
+5. On the setup screen, select:  
+   **Join this device to Microsoft Entra ID**
+6. Sign in using a Microsoft Entra ID user account.
+7. Complete multi-factor authentication if prompted.
+8. When prompted, allow your organization to manage the device.
+9. Select **Join**, then **Restart now** when prompted.
+
+---
+
+## Sign In After Join
+
+1. After restart, select **Other user** on the sign-in screen.
+2. Sign in using:
